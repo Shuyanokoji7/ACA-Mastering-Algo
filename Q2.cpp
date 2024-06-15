@@ -22,8 +22,9 @@ int shortestSubarray(vector<int>& nums, int k) {
         if(curr.second!=INT_MIN){
             mini = min(mini,(i-curr.first));
         }
-        while(!dq.empty() and sum<=dq.back().second)
+        while(!dq.empty() and sum<=dq.back().second){
             dq.pop_back();
+        }
         dq.push_back({i,sum});
     }
     return mini==INT_MAX?-1:mini;
